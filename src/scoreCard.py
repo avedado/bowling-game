@@ -14,4 +14,9 @@ class ScoreCard:
     def total_score(self):
       return sum(int(pin) for pin in self.pins)
          #separamos los lanzamientos y los convertimos
-         #en números enteros para sumamos
+         #en números enteros para sumarlos
+
+    def strike(self):
+        for pin in self.pins:
+            pin == 'X'
+            return 300
