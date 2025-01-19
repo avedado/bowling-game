@@ -36,15 +36,27 @@ class ScoreCard:
         #tambien y devuelve 150.
         #es una función muy específica
 
+    # def heartbreak(self):
+    #     frame_heartbreak = list()
+    #     for pin in self.pins:
+    #         if pin == '9':
+    #             frame_heartbreak.append(pin)
+    #         elif pin == '-':
+    #             frame_heartbreak.append(pin)
+    #             return 90
+    #     #por cada pin en pins, si es igual a '9'
+    #     #agregalo a la lista, si el igual a '-', 
+    #     #tambien y devuelve 90.
+    #     #es una función muy específica
+
     def heartbreak(self):
-        frame_heartbreak = list()
+        self.score = 0
         for pin in self.pins:
-            if pin == '9':
-                frame_heartbreak.append(pin)
-            elif pin == '-':
-                frame_heartbreak.append(pin)
-                return 90
-        #por cada pin en pins, si es igual a '9'
-        #agregalo a la lista, si el igual a '-', 
-        #tambien y devuelve 90.
-        #es una función muy específica
+            if pin == '-':
+                continue
+            self.score += int(pin)
+        return self.score
+        # definiendo el puntaje en 0, por cada pin en pins
+        # si es igual a '-' continua, si no suma el pin al puntaje
+        # y devuelve el puntaje
+        
