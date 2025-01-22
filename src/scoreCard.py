@@ -6,9 +6,6 @@ class ScoreCard:
     def __init__(self, score_card):
         self.pins = score_card #lanzamientos
 
-        '''self.score = 0 #puntaje
-        self.frame = 10 #turnos
-        self.intentos = 0 #cambiar nombre'''
 
     def get_pins(self):
         return self.pins
@@ -46,43 +43,18 @@ class ScoreCard:
         return self.score
 
 
-        self.score = 0
+        # self.score = 0
 
-        for pin in self.pins:
-            if pin == 'X':
-                self.score += int(ScoreCard.VALUE_X)
-            elif pin == '-':
-                continue
-            else:
-                self.score += int(pin)
-        return self.score
-        
-
-
-        self.score = 0
         # for pin in self.pins:
-        #     if pin == 'X': 
-        #         self.score +=10
-        #         self.score = sum(int(pin[posicion + 2]))
-        #         return self.score
-            
-        for posicion in range(len(self.pins)):
-            if self.pins == 'X':
-                self.score +=10
-                for punto_anterior in range(posicion):
-                    self.score += sum(int(self.pins[punto_anterior]))
-                    if posicion+1 < len(self.pins):
-                        self.score += int(self.pins[posicion+1])
-                    if posicion+2 < len(self.pins):
-                        self.score += int(self.pins[posicion+2])
-            else: 
-                self.score += int(self.pins[posicion]) 
-
-
-            return self.score
-
-
-            
+        #     if pin == 'X':
+        #         self.score += int(ScoreCard.VALUE_X)
+        #     elif pin == '-':
+        #         continue
+        #     else:
+        #         self.score += int(pin)
+        # return self.score
+        
+    
         #por cada pin en pins, si es igual a 'X' devuelve 300
         #es una función muy específica y solo está tomando el 
         #primer valor
