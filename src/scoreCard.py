@@ -18,8 +18,8 @@ class ScoreCard:
 
     def strike(self):
         for pin in self.pins:
-            pin == 'X'
-            return 300
+            if pin == 'X':
+             return 300
         #por cada pin en pins, si es igual a 'X' devuelve 300
         #es una función muy específica
 
@@ -32,7 +32,7 @@ class ScoreCard:
                 frame_spares.append(pin)
                 return 150
         #por cada pin en pins, si es igual a '5'
-        #agregalo a la lista, si el igual a '/', 
+        #agregalo a la lista, si el igual a '/'
         #tambien y devuelve 150.
         #es una función muy específica
 
@@ -45,7 +45,7 @@ class ScoreCard:
     #             frame_heartbreak.append(pin)
     #             return 90
     #     #por cada pin en pins, si es igual a '9'
-    #     #agregalo a la lista, si el igual a '-', 
+    #     #agregalo a la lista, si el igual a '-',
     #     #tambien y devuelve 90.
     #     #es una función muy específica
 
@@ -59,4 +59,3 @@ class ScoreCard:
         # definiendo el puntaje en 0, por cada pin en pins
         # si es igual a '-' continua, si no suma el pin al puntaje
         # y devuelve el puntaje
-        
