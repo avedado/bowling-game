@@ -20,7 +20,6 @@ class ScoreCard:
 
     def strike(self):
         self.score = 0
-
         for pin in self.pins:
             if pin == 'X':
                 self.score += int(ScoreCard.VALUE_X)
@@ -29,7 +28,6 @@ class ScoreCard:
             else:
                 self.score += int(pin)
         return self.score
-        
 
     def spares(self):
         frame_spares = list()
