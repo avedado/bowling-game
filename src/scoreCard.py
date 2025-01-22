@@ -20,6 +20,33 @@ class ScoreCard:
 
     def strike(self):
         self.score = 0
+        num_pins = len(self.pins)
+        posicion = 0  # Inicializamos el índice manualmente
+
+        while posicion < num_pins:
+            pin = self.pins[posicion]
+
+            if pin == 'X':  # Strike
+                self.score += int(ScoreCard.VALUE_X)  # Sumar 10 puntos por el strike
+
+                # Sumar las dos posiciones siguientes, si existen
+                if posicion + 1 < num_pins:
+                    next_pin = self.pins[posicion + 1]
+                    self.score += int(ScoreCard.VALUE_X) if next_pin == 'X' else (int(next_pin) if next_pin.isdigit() else 0)
+
+                if posicion + 2 < num_pins:
+                    next_next_pin = self.pins[posicion + 2]
+                    self.score += 10 if next_next_pin == 'X' else (int(next_next_pin) if next_next_pin.isdigit() else 0)
+
+            elif pin.isdigit():  # Pinos normales
+                self.score += int(pin)
+
+            posicion += 1  # Incrementamos el índice manualmente
+
+        return self.score
+
+
+        self.score = 0
 
         for pin in self.pins:
             if pin == 'X':
@@ -31,6 +58,35 @@ class ScoreCard:
         return self.score
         
 
+
+        self.score = 0
+        # for pin in self.pins:
+        #     if pin == 'X': 
+        #         self.score +=10
+        #         self.score = sum(int(pin[posicion + 2]))
+        #         return self.score
+            
+        for posicion in range(len(self.pins)):
+            if self.pins == 'X':
+                self.score +=10
+                for punto_anterior in range(posicion):
+                    self.score += sum(int(self.pins[punto_anterior]))
+                    if posicion+1 < len(self.pins):
+                        self.score += int(self.pins[posicion+1])
+                    if posicion+2 < len(self.pins):
+                        self.score += int(self.pins[posicion+2])
+            else: 
+                self.score += int(self.pins[posicion]) 
+
+
+            return self.score
+
+
+            
+        #por cada pin en pins, si es igual a 'X' devuelve 300
+        #es una función muy específica y solo está tomando el 
+        #primer valor
+
     def spares(self):
         frame_spares = list()
         for pin in self.pins:
@@ -40,7 +96,7 @@ class ScoreCard:
                 frame_spares.append(pin)
                 return 150
         #por cada pin en pins, si es igual a '5'
-        #agregalo a la lista, si el igual a '/'
+        #agregalo a la lista, si el igual a '/', 
         #tambien y devuelve 150.
         #es una función muy específica
 
@@ -54,3 +110,4 @@ class ScoreCard:
         # definiendo el puntaje en 0, por cada pin en pins
         # si es igual a '-' continua, si no suma el pin al puntaje
         # y devuelve el puntaje
+        
