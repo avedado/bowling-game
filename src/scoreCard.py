@@ -1,5 +1,7 @@
 
 class ScoreCard:
+    VALUE_X = 10
+    VALUE_CERO = 0
 
     def __init__(self, score_card):
         self.pins = score_card #lanzamientos
@@ -17,11 +19,17 @@ class ScoreCard:
          #en números enteros para sumarlos
 
     def strike(self):
+        self.score = 0
+
         for pin in self.pins:
             if pin == 'X':
-             return 300
-        #por cada pin en pins, si es igual a 'X' devuelve 300
-        #es una función muy específica
+                self.score += int(ScoreCard.VALUE_X)
+            elif pin == '-':
+                continue
+            else:
+                self.score += int(pin)
+        return self.score
+        
 
     def spares(self):
         frame_spares = list()
@@ -35,19 +43,6 @@ class ScoreCard:
         #agregalo a la lista, si el igual a '/'
         #tambien y devuelve 150.
         #es una función muy específica
-
-    # def heartbreak(self):
-    #     frame_heartbreak = list()
-    #     for pin in self.pins:
-    #         if pin == '9':
-    #             frame_heartbreak.append(pin)
-    #         elif pin == '-':
-    #             frame_heartbreak.append(pin)
-    #             return 90
-    #     #por cada pin en pins, si es igual a '9'
-    #     #agregalo a la lista, si el igual a '-',
-    #     #tambien y devuelve 90.
-    #     #es una función muy específica
 
     def heartbreak(self):
         self.score = 0

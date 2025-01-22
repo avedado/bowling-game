@@ -15,19 +15,19 @@ def test_frame_pins():
 def test_total_score():
     PINS = '12345123451234512345'
     card = ScoreCard(PINS)
-    assert 60 == card.total_score()
+    assert card.total_score() == 60
 
 #PERFECT GAME (12 STRIKES)
 def test_strike():
-    PINS = 'XXXXXXXXXXXX'
+    PINS = '2222XXXXXXX-2'
     card = ScoreCard(PINS)
-    assert 300 == card.strike()
+    assert card.strike() == 192  
 
 #FRAMES SPARES (10 PINES EN LOS DOS INTENTOS DEL FRAME)
 def test_spares():
     PINS = '5/5/5/5/5/5/5/5/5/5/'
     card = ScoreCard(PINS)
-    assert 150 == card.spares()
+    assert card.spares() == 150      
 
 #DESAMOR 9 PINES POR FRAME
 def test_heartbreak():
