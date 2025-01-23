@@ -53,17 +53,26 @@ class ScoreCard:
         return self.score
 
     def spares(self):
-        frame_spares = list()
-        for pin in self.pins:
+        self.score = 0
+        num_pins = len(self.pins)
+        posicion = 0
+
+        while posicion < num_pins: # Recorrer todos los pines
+            pin = self.pins[posicion] # Obtener el pin actual
+
             if pin == '5':
-                frame_spares.append(pin)
+                self.score += 5 # Sumar 5 puntos por el spare
             elif pin == '/':
-                frame_spares.append(pin)
-                return 150
-        #por cada pin en pins, si es igual a '5'
-        #agregalo a la lista, si el igual a '/',
-        #tambien y devuelve 150.
-        #es una función muy específica
+                self.score += 10 - int(self.pins[posicion - 1])  # Sumar los puntos necesarios para completar 10, restando el valor del pin anterior
+                if posicion + 1 < num_pins: # Verificar que exista la siguiente posición
+                    next_pin = self.pins[posicion + 1] # Obtener el siguiente pin
+                    if next_pin.isdigit(): # Verificar si el siguiente pin es un número
+                        self.score += int(next_pin) # Sumar el valor del siguiente pin
+                    elif next_pin == 'X':
+                        self.score += 10
+            posicion += 1
+
+        return self.score
 
     def heartbreak(self):
         self.score = 0
