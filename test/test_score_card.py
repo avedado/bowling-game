@@ -19,7 +19,7 @@ def test_total_score():
 
 #PERFECT GAME (12 STRIKES)
 def test_strike():
-    PINS = '2222XXXXXXX02'
+    PINS = '2222XXXXXXX-2'
     card = ScoreCard(PINS)
     assert card.strike() == 192
 
