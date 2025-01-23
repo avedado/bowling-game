@@ -19,9 +19,9 @@ def test_total_score():
 
 #PERFECT GAME (12 STRIKES)
 def test_strike():
-    PINS = '2222XXXXXXX-2'
+    PINS = '2222XXXXXXX02'
     card = ScoreCard(PINS)
-    assert card.strike() == 192  
+    assert card.strike() == 192
 
 #FRAMES SPARES (10 PINES EN LOS DOS INTENTOS DEL FRAME)
 def test_spares():
